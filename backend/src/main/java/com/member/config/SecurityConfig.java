@@ -36,7 +36,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()          // 로그인, 회원가입 허용
-                        .requestMatchers("/api/members/**").permitAll()       // 🔥 회원 목록 API 허용
+                        .requestMatchers("/api/members/**").permitAll()       // 회원 목록 API 허용
                         .anyRequest().authenticated()                         // 그 외는 인증 필요
                 )
                 .addFilterBefore(jwtAuthFilter(), UsernamePasswordAuthenticationFilter.class);
